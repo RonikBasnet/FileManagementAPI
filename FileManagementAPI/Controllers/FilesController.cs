@@ -196,16 +196,14 @@ public class FilesController : ControllerBase
             string fileName = $"{Guid.NewGuid()}{Path.GetExtension(file.FileName)}";
             string filePath = Path.Combine(uploadsDir, fileName);
 
-            // Save the file to the server
             using (var stream = new FileStream(filePath, FileMode.Create))
             {
                 await file.CopyToAsync(stream);
             }
 
-            // Generate the file's public URL
             //string fileUrl = $"{Request.Scheme}://{Request.Host}/uploads/{fileName}";
             string fileUrl = $"/uploads/{fileName}";
-            // Save file metadata including FileType
+  
             var fileModel = new FileModel
             {
                 Title = title,
