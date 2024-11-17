@@ -211,7 +211,7 @@ public class FilesController : ControllerBase
                 Title = title,
                 Category = category,
                 FileUrl = fileUrl,
-                FileType = file.ContentType, // Capture the FileType here
+                FileType = file.ContentType,
                 LastUpdated = DateTime.UtcNow,
                 Created = DateTime.UtcNow,
                 IsAssigned = false
